@@ -2,8 +2,8 @@ let userScore = 0;
 let compScore = 0;
 const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
-const userScoreValue = document.querySelector("#user-score"); 
-const compScoreValue = document.querySelector("#comp-score"); 
+const userScoreValue = document.querySelector("#user-score");
+const compScoreValue = document.querySelector("#comp-score");
 
 // console.log(msg);
 const genCompChoice = () => {
@@ -14,26 +14,25 @@ const genCompChoice = () => {
 
 const drawGame = () => {
   console.log("game was draw.");
-  msg.innerText="Game was draw, play again"
+  msg.innerText = "Game was draw, play again";
   msg.style.backgroundColor = "#081b31";
 };
 
-const showWinner = (userWon,userChoice,compChoice)=>{
-
-    if(userWon){
-       userScore++;
-       console.log("user score",userScore);
-       userScoreValue.innerText = userScore;
-       msg.innerText=`you win! Your ${userChoice} beats ${compChoice}`
-       msg.style.backgroundColor = "green";
-      }else{
-        compScore++;
-        console.log("comp score",compScore);
-        compScoreValue.innerText = compScore;
-        msg.innerText=`you lose.  ${compChoice} beats your ${userChoice}`
-        msg.style.backgroundColor = "red";
-    }
-}
+const showWinner = (userWon, userChoice, compChoice) => {
+  if (userWon) {
+    userScore++;
+    console.log("user score", userScore);
+    userScoreValue.innerText = userScore;
+    msg.innerText = `you win! Your ${userChoice} beats ${compChoice}`;
+    msg.style.backgroundColor = "green";
+  } else {
+    compScore++;
+    console.log("comp score", compScore);
+    compScoreValue.innerText = compScore;
+    msg.innerText = `you lose.  ${compChoice} beats your ${userChoice}`;
+    msg.style.backgroundColor = "red";
+  }
+};
 const playGame = (userChoice) => {
   console.log("user choice = ", userChoice);
   //genrate comp choice
@@ -54,7 +53,7 @@ const playGame = (userChoice) => {
     } else userChoice === "scissors";
     userWon = compChoice === "rock" ? false : true;
 
-    showWinner(userWon ,userChoice, compChoice);
+    showWinner(userWon, userChoice, compChoice);
   }
 };
 
