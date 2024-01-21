@@ -2,10 +2,15 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+body{
+  background-color: #ffddff;
 }
 
 h1 {
-  background-color: #081b31;
+  /* background-color: #081b31; */
+  background-color:#7849a4;
   color: #fff;
   height: 5rem;
   line-height: 5rem;
@@ -22,13 +27,13 @@ h1 {
 
 .choice:hover {
   cursor: pointer;
-  background-color: #081b31;
+  background-color: #000;
 }
 
 img {
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
+  height: 166px;
+  width: 276px;
+  object-fit: contain;
   border-radius: 50%;
 }
 
@@ -36,10 +41,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 5rem;
   margin-top: 5rem;
 }
-
 .score-board {
   display: flex;
   justify-content: center;
@@ -67,5 +71,5 @@ img {
   border-radius: 1rem;
 }
 #msg:hover{
-  cursor: pointer;
+  background-color: #29517f;
 }
