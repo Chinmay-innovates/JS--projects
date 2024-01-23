@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#copyText {
+  width: 10%;
+  height: 10%;
+  display: flex;
+  float: right;
+  font-size: 19px;
+}
+.color {
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  transition: 2s;
+  font-family: serif;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+button {
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  display: block;
+  font-size: 25px;
+  margin-top: 5px;
+  padding: 3px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+button:hover {
+  cursor: pointer;
+}
