@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-#copyText {
+#copy-col{
   width: 10%;
   height: 10%;
   display: flex;
