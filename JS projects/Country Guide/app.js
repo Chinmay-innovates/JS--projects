@@ -3,9 +3,9 @@ let countryInp = document.getElementById("country-inp");
 
 searchBtn.addEventListener("click", () => {
   let countryName = countryInp.value;
-  let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-  console.log(finalURL);
-  fetch(finalURL)
+  let baseURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+  console.log(baseURL);
+  fetch(baseURL)
     .then((response) => response.json())
     .then((data) => {
       //   console.log(data[0]);
