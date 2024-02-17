@@ -1,0 +1,25 @@
+
+#container{
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+body{
+    display: flex;
+    align-items: center;
+   flex-direction: column;
+   background-color: pink;
+}
+.bar{
+    width: 10px;
+    background: #000;
+    margin: 1px;
+}
+button{
+    margin: 2px;
+    padding: 2px;
+    color: black;
+}
+button:hover{
+    cursor: pointer;
+}
