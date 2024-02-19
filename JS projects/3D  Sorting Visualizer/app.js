@@ -23,7 +23,7 @@ for (let i = 0; i < arr.length; i++) {
 
 let moves = bubbleSort(arr);
 animate();
-// console.log(moves);
+console.log(moves);
 function bubbleSort(arr) {
   const moves = [];
   do {
@@ -57,10 +57,10 @@ function animate() {
   if (!changed && moves.length > 0) {
     const move = moves.shift();
     const [i, j] = move.indices;
-    if (move.swap==true) {
+    if (move.swap) {
       cols[i].moveTo(cols[j]);
       cols[j].moveTo(cols[i]);
-      [cols[i], cols[j]] == [cols[j], cols[i]];
+      [cols[i], cols[j]] = [cols[j], cols[i]];
     } else {
       //to-do
     }
