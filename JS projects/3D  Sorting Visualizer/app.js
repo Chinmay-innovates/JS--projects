@@ -1,16 +1,37 @@
 const n = 20;
+arr = [];
 myCanvas.width = 400;
 myCanvas.height = 300;
-const margin = 30;
+margin = 30;
 
-const arr = [];
+let audioContext = null;
+function playNote(freq ,type) {
+  if (audioContext == null) {
+    audioContext = new (AudioContext ||
+      webkitAudioContext ||
+      window.webkitAudioContext)();
+  }
+  const dur = 0.2;
+  const osc = audioContext.createOscillator();
+  osc.frequency.value = freq;
+  osc.start();
+  osc.type=type;
+  osc.stop(audioContext.currentTime + dur);
+  const node = audioContext.createGain();
+  node.gain.value = 0.4;
+  //To remove the buzzing(clicking noise) sound at end
+  node.gain.linearRampToValueAtTime(0, audioContext.currentTime + dur);
+  osc.connect(node);
+  node.connect(audioContext.destination);
+}
+
 for (let i = 0; i < n; i++) {
   arr[i] = Math.random();
 }
-const cols = [];
-const spacing = (myCanvas.width - margin * 2) / n;
-const ctx = myCanvas.getContext("2d");
-const maxColHeight = 200;
+cols = [];
+spacing = (myCanvas.width - margin * 2) / n;
+ctx = myCanvas.getContext("2d");
+maxColHeight = 200;
 
 for (let i = 0; i < arr.length; i++) {
   const tilt = i * 3;
@@ -48,21 +69,23 @@ function bubbleSort(arr) {
 }
 
 function animate() {
-  let changed;
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    changed=false;
+  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+  let changed = false;
   for (let i = 0; i < cols.length; i++) {
     changed = cols[i].draw(ctx) || changed;
   }
   if (!changed && moves.length > 0) {
     const move = moves.shift();
     const [i, j] = move.indices;
+    const waveType = move.swap ? "square" : "sine";
+    playNote(cols[i].height+ cols[j].height, waveType);
     if (move.swap) {
       cols[i].moveTo(cols[j]);
-      cols[j].moveTo(cols[i]);
+      cols[j].moveTo(cols[i], -1);
       [cols[i], cols[j]] = [cols[j], cols[i]];
     } else {
-      //to-do
+      cols[i].jump();
+      cols[j].jump();
     }
   }
   requestAnimationFrame(animate);
