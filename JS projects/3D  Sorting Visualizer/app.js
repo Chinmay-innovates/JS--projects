@@ -1,8 +1,7 @@
-n = 20;
+const n = 20;
 myCanvas.width = 400;
 myCanvas.height = 300;
-margin = 30;
-// const myCanvas = document.getElementById("myCanvas")
+const margin = 30;
 
 const arr = [];
 for (let i = 0; i < n; i++) {
@@ -11,8 +10,8 @@ for (let i = 0; i < n; i++) {
 const cols = [];
 const spacing = (myCanvas.width - margin * 2) / n;
 const ctx = myCanvas.getContext("2d");
-
 const maxColHeight = 200;
+
 for (let i = 0; i < arr.length; i++) {
   const tilt = i * 3;
   const x = i * spacing + spacing / 2 + margin;
@@ -23,8 +22,8 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 let moves = bubbleSort(arr);
-// console.log(moves);
 animate();
+// console.log(moves);
 function bubbleSort(arr) {
   const moves = [];
   do {
@@ -49,6 +48,7 @@ function bubbleSort(arr) {
 }
 
 function animate() {
+  let changed;
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     changed=false;
   for (let i = 0; i < cols.length; i++) {

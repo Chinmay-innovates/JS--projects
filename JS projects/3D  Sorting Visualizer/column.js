@@ -12,7 +12,7 @@ class Column {
     this.queue = [];
   }
   moveTo(loc, frameCount = 20) {
-    for (let i = 0; i < frameCount; i++) {
+    for (let i = 1; i < frameCount; i++) {
       const t = i / frameCount;
       this.queue.push({
         x: lerp(this.x, loc.x, t),
@@ -22,16 +22,16 @@ class Column {
   }
   draw(ctx) {
     let changed=false;
+    const left = this.x - this.width / 2;
+    const top = this.y - this.height;
+    const right = this.x + this.width / 2;
+    ctx.fillStyle = "rgb(150,150,150)";
     if (this.queue.length > 0) {
       const { x, y } = this.queue.shift();
       this.x = x;
       this.y = y;
       changed=true;
     }
-    const left = this.x - this.width / 2;
-    const top = this.y - this.height;
-    const right = this.x + this.width / 2;
-    ctx.fillStyle = "rgb(150,150,150)";
 
     ctx.beginPath();
     ctx.moveTo(left, top);
