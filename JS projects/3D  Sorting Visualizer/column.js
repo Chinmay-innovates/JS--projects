@@ -7,7 +7,7 @@ class Column {
     this.queue = [];
     this.color = {
       r: 150,
-      g: 150,
+      g: 1500,
       b: 150,
     };
   }
